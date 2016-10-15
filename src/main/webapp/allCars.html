@@ -1,0 +1,39 @@
+<div class="container">
+    <h1>{{allCtrl.title}}</h1>
+    <h2>Number of cars: {{allCtrl.cars.length}}</h2>
+    <input type="search" ng-model="carfilter" placeholder="Filter cars">
+    <div>
+        <table class="table">
+            <thead >
+                <tr>
+                    <td>ID</td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'year'; allCtrl.reverse = !allCtrl.reverse">Year</a></td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'registered'; allCtrl.reverse = !allCtrl.reverse">Registered</a></td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'make'; allCtrl.reverse = !allCtrl.reverse">Make</a></td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'model'; allCtrl.reverse = !allCtrl.reverse">Model</a></td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'description'; allCtrl.reverse = !allCtrl.reverse">Description</a></td>
+                    <td><a href="" ng-click="allCtrl.predicate = 'price'; allCtrl.reverse = !allCtrl.reverse">Price</a></td>
+                    <td><a>Action</a></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr  ng-repeat="car in allCtrl.cars| filter: carfilter | orderBy:allCtrl.predicate:allCtrl.reverse">
+                    <td>{{car.id}}</td>
+                    <td>{{car.year}}</td>
+                    <td>{{car.registered| date }}</td>
+                    <td>{{car.make}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.description}}</td>
+                    <td>{{car.price| currency}}</td>
+                    <td>
+                        <a href="#edit" ng-click="allCtrl.setCar(car)">edit</a> |
+                        <a href="" ng-click="allCtrl.deleteCar(car.id)">delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Sort Column: {{allCtrl.predicate}}</h4>
+        <h4>Reverse: {{allCtrl.reverse}}</h4>
+    </div>
+</div>

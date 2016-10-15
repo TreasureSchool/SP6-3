@@ -1,0 +1,26 @@
+<div class="col-md-3" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form action="#all" ng-submit="reviewForm.$valid && newCtrl.addCar(car)" name="reviewForm" novalidate>
+        <h4>Add a car</h4>
+        <fieldset class="form-group">
+            <input type="number" ng-model="car.year" class="form-control" placeholder="20XX"  title="Year" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type ="date" ng-model="car.registered" class="form-control" placeholder="" title="Registered" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type="text" ng-model="car.make" class="form-control" placeholder="Audi"  title="Make" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type ="text" ng-model="car.model" class="form-control" placeholder="A6" title="Model" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type="text" ng-model="car.description" class="form-control" placeholder="Bob"  title="Description">
+        </fieldset>
+        <fieldset class="form-group">
+            <input type ="number" ng-model="car.price" class="form-control" placeholder="9" title="Price" required>
+        </fieldset>
+        <fieldset class="form-group">
+            <input type="submit" value="Submit Car"/>
+        </fieldset>
+    </form>
+</div>
